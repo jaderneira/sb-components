@@ -1,8 +1,2 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+export { Button } from "./stories/Button";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-   <h1>Hi</h1>
-  </React.StrictMode>
-)
