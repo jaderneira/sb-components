@@ -1,14 +1,36 @@
 {
-  "name": "my-storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "jn-my-storybook-components",
+  "private": false,
+  "version": "0.1.0",
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "repository": {
+    "url": "https://github.com/jaderneira/sb-components.git",
+    "type": "git"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "typescript": ">=4.6.4"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "type": "module",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook",
+    "build": "yarn clean && tsc && yarn copy-files",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=465e0b255152"
+    "chromatic": "npx chromatic --project-token=465e0b255152",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -28,6 +50,8 @@
     "@vitejs/plugin-react": "^2.2.0",
     "babel-loader": "^8.3.0",
     "chromatic": "^6.11.4",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.6.4",
     "vite": "^3.2.3"
   },
